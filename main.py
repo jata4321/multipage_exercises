@@ -29,7 +29,6 @@ def main():
     def login():
         if st.button('Login', ):
             login_form()
-            # st.rerun()
 
     def logout():
         if st.button('Logout'):

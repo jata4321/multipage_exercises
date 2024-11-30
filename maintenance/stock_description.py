@@ -14,5 +14,5 @@ try:
         if enum < 7:
             st.markdown(f'{key}: {value}')
 
-except any([TimeoutError, KeyError]) as e:
+except TimeoutError as e:
     st.error(f'No intel about {st.session_state["instrument"]}. Error {e}')
