@@ -6,7 +6,7 @@ from streamlit import session_state
 st.set_page_config(page_title='Stock info', layout='centered')
 
 def main():
-    """ This is the main function of the app"""
+    """ This is the main function of the app """
 
     def login_form() -> None:
         with st.form('Credentials'):
