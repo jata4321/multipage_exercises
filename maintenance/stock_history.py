@@ -5,7 +5,7 @@ import altair as alt
 instrument = yf.Ticker(st.session_state['instrument'])
 df = instrument.history(period='max')
 
-st.dataframe(df.resample('Y').mean())
+st.expander('Raw data').dataframe(df.resample('Y').mean())
 
 # Add a Streamlit slider to allow the user to select a date range for the data
 date_range = st.slider(
@@ -35,18 +35,18 @@ chart = alt.Chart(df.reset_index()).mark_line(
 
 
 chart2 = alt.Chart(df.reset_index()).mark_area(
-    line={'color': 'green'},
+    line={'color': 'darkgreen'},
     color=alt.Gradient(
         gradient='linear',
-        stops=[alt.GradientStop(color='olive', offset=0),
-               alt.GradientStop(color='green', offset=1)],
+        stops=[alt.GradientStop(color='lightgreen', offset=0),
+               alt.GradientStop(color='darkgreen', offset=1)],
         x1=1, x2=1, y1=1, y2=0
     )
 ).encode(
     x='Date:T',
     y=alt.Y('Close:Q').scale(type='symlog', zero=False),
 ).properties(
-    title='Closing Prices Over Time'
+    title='Closing Prices Over Time Log Scale'
 )
 # Create an Altair area chart with a gradient
 
